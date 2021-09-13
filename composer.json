@@ -1,0 +1,51 @@
+{
+    "name": "chinleung/laravel-nuvei",
+    "description": "A PHP wrapper for Nuvei's api.",
+    "keywords": [
+        "chinleung",
+        "nuvei"
+    ],
+    "homepage": "https://github.com/chinleung/laravel-nuvei",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Chin Leung",
+            "email": "hello@chinleung.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.2",
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ChinLeung\\Nuvei\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ChinLeung\\Nuvei\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ChinLeung\\Nuvei\\NuveiServiceProvider"
+            ]
+        }
+    }
+}
