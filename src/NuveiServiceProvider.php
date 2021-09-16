@@ -21,7 +21,6 @@ class NuveiServiceProvider extends ServiceProvider
 
         $this->app->bind(Client::class, static function () {
             return new Client(
-                config('nuvei.merchant_id'),
                 config('nuvei.terminal.id'),
                 config('nuvei.terminal.secret'),
                 config('nuvei.demo')

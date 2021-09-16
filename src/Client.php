@@ -19,13 +19,6 @@ class Client
     protected $endpoint = 'https://payments.nuvei.com/merchant/xmlpayment';
 
     /**
-     * The merchant id of the account.
-     *
-     * @var string
-     */
-    protected $id;
-
-    /**
      * The terminal secret.
      *
      * @var string
@@ -42,14 +35,12 @@ class Client
     /**
      * Create a new instance of the client.
      *
-     * @param  string  $id
      * @param  string  $terminal
      * @param  string  $secret
      * @param  bool  $demo
      */
-    public function __construct(string $id, string $terminal, string $secret, bool $demo = false)
+    public function __construct(string $terminal, string $secret, bool $demo = false)
     {
-        $this->id = $id;
         $this->terminal = $terminal;
         $this->secret = $secret;
 
