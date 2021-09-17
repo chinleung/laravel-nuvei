@@ -77,15 +77,15 @@ class Card implements Chargeable
             return 'AMEX';
         }
 
-        if (Str::startsWith($this->number, '4')) {
-            return 'VISA';
-        }
-
         if (Str::startsWith($this->number, '5')) {
             return 'MASTERCARD';
         }
 
-        return 'UNKNOWN';
+        if (Str::startsWith($this->number, '6')) {
+            return 'DISCOVER';
+        }
+
+        return 'VISA';
     }
 
     /**
