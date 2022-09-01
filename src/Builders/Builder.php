@@ -3,6 +3,7 @@
 namespace ChinLeung\Nuvei\Builders;
 
 use ChinLeung\Nuvei\Concerns\Makeable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 abstract class Builder
@@ -27,6 +28,16 @@ abstract class Builder
         $id = time().uniqid();
 
         return strtoupper(Str::random($length - strlen($id)).$id);
+    }
+
+    /**
+     * Retrieve an option of the builder.
+     *
+     * @return mixed
+     */
+    public function getOption(string $name)
+    {
+        return Arr::get($this->options, $name);
     }
 
     /**
