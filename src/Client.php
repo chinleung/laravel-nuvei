@@ -153,7 +153,8 @@ class Client
     {
         return new Response(
             Http::withBody($this->generatePayload($action, $options), 'xml')
-                ->post($this->endpoint)
+                ->post($this->endpoint),
+            $options
         );
     }
 

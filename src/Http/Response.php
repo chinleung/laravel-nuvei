@@ -3,6 +3,7 @@
 namespace ChinLeung\Nuvei\Http;
 
 use Illuminate\Http\Client\Response as ClientResponse;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use SimpleXMLElement;
@@ -27,13 +28,20 @@ class Response
      * Create a new instance of the response.
      *
      * @param  \Illuminate\Http\Client\Response  $response
+     * @param  array  $options
      */
-    public function __construct(ClientResponse $response)
+    public function __construct(ClientResponse $response, array $options)
     {
         $this->response = $response;
 
         if (config('nuvei.debug.log')) {
-            Log::debug(sprintf('Nuvei Response :: [%s]', $response->body()));
+            Log::debug(sprintf(
+                'Nuvei Response :: %s :: [%s]',
+                Arr::get($options, 'ORDERID')
+                    ?? Arr::get($options, 'UNIQUEREF')
+                    ?? Arr::get($options, 'MERCHANTREF'),
+                $response->body()
+            ));
         }
 
         $this->xml = simplexml_load_string($response->body());
