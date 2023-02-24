@@ -77,7 +77,7 @@ class ChargeBuilder extends Builder
         if ($response->get('RESPONSECODE') != 'A') {
             throw new CardException(
                 $response->get('RESPONSETEXT'),
-                $response->get('BANKRESPONSECODE')
+                (string) $response->get('BANKRESPONSECODE')
             );
         }
 
