@@ -16,7 +16,7 @@ class Exception extends BaseException
     {
         if (! is_numeric($code)) {
             $message = "[{$code}]: {$message}";
-            $code = preg_replace('/[^\d]+/', '', $code);
+            $code = (int) preg_replace('/[^\d]+/', '', $code);
         }
 
         parent::__construct($message, $code);
